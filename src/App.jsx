@@ -2,27 +2,19 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Card from './components/Card';
 
-// const BASED_API = "https://pokeapi.co/api/v2/pokemon-form"
+const pokeList = [131,132,133,134,135];
 
-// async function fetchPokemon(pokeNumber) {
-//   const response = await fetch(`${BASED_API}/${pokeNumber}`)
-//   const pokeData = await response.json();
-//   // console.log(pokeData);
-//   return new Promise((resolve) => {
-//     resolve({
-//       name: pokeData.name,
-//       img_src: pokeData.sprites.front_default,
-//     });
-//   });
-//   // return pokeData;
-// }
+function randomIndex(max) {
+  return Math.floor(Math.random() * max);
+}
 
 function App() {
-  const example = 132;
+  const index = randomIndex(pokeList.length);
+  const pokeNumber = pokeList[index];
   return (
     <>
       <h1>A game of memory</h1>
-      <Card pokeNumber={example}/>
+      <Card pokeNumber={pokeNumber}/>
     </>
   )
 }
