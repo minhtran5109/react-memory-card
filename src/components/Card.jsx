@@ -13,30 +13,37 @@ async function fetchPokemon(pokeNumber) {
   });
 }
 
-function Card({pokeNumber}) {
-  const [pokeData, setPokeData] = useState(null);
-  const [loading, setLoading] = useState(true);
+function Card({pokeNumber, onClick}) {
+  // const [pokeData, setPokeData] = useState(null);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    async function loadData() {
-      const result = await fetchPokemon(pokeNumber);
-      setPokeData(result);
-      setLoading(false);
-    }
-    loadData();
-  }, [pokeNumber])
+  // useEffect(() => {
+  //   async function loadData() {
+  //     const result = await fetchPokemon(pokeNumber);
+  //     setPokeData(result);
+  //     setLoading(false);
+  //   }
+  //   loadData();
+  // }, [pokeNumber])
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
+
+  // return (
+  //   <div className="card">
+  //     <img src={pokeData.img_src}></img>
+  //     <span>{pokeData.name}</span>
+  //     <pre>{JSON.stringify(pokeData, null, 2)}</pre>
+  //   </div>
+  // )
 
   return (
-    <div className="card">
-      <img src={pokeData.img_src}></img>
-      <span>{pokeData.name}</span>
-      <pre>{JSON.stringify(pokeData, null, 2)}</pre>
+    <div onClick={() => onClick(pokeNumber)} style={{ cursor: 'pointer', padding: '10px', border: '1px solid black', margin: '5px' }}>
+    {pokeNumber}
     </div>
   )
+
 };
 
 export default Card;

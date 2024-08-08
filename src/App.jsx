@@ -17,16 +17,11 @@ function shuffleArray(array) {
   return newArray;
 }
 
-const Item = ({ number, onClick }) => (
-  <div onClick={() => onClick(number)} style={{ cursor: 'pointer', padding: '10px', border: '1px solid black', margin: '5px' }}>
-    {number}
-  </div>
-);
+
 
 const ItemList = ({ numbers , increaseCount, resetCount}) => {
   const [shuffledNumbers, setShuffledNumbers] = useState(numbers);
-  const [clickedNumber, setClickedNumber] = useState(null);  //Will I actually need this?
-  const [isSameAsLastClick, setIsSameAsLastClick] = useState(false); // Or even this?
+  const [clickedNumber, setClickedNumber] = useState(null);  //Will I eventually still need this?
 
   const [clickedRecord, setClickedRecord] = useState([]);
 
@@ -50,13 +45,20 @@ const ItemList = ({ numbers , increaseCount, resetCount}) => {
     setShuffledNumbers(shuffleArray(shuffledNumbers));
   };
 
+  useEffect(() => {
+    if(clickedRecord.length === DEFAULT_POKES.length) {
+      console.log('finished');
+      window.alert("You won! Congratulations!\nThe Game will now reset.");
+      window.location.reload();
+    }
+  }, [clickedRecord]);
+
   return (
     <div>
       {shuffledNumbers.map((number, index) => (
-        <Item key={index} number={number} onClick={handleItemClick} />
+        <Card key={index} pokeNumber={number} onClick={handleItemClick} />
       ))}
       {clickedNumber !== null && <p>You clicked on: {clickedNumber}</p>}
-      {isSameAsLastClick && <p>The clicked number is the same as the last one!</p>}
     </div>
   );
 };
