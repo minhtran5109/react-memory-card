@@ -25,16 +25,26 @@ const Item = ({ number, onClick }) => (
 
 const ItemList = ({ numbers , increaseCount, resetCount}) => {
   const [shuffledNumbers, setShuffledNumbers] = useState(numbers);
-  const [clickedNumber, setClickedNumber] = useState(null);
-  const [isSameAsLastClick, setIsSameAsLastClick] = useState(false); //Will I actually need this?
+  const [clickedNumber, setClickedNumber] = useState(null);  //Will I actually need this?
+  const [isSameAsLastClick, setIsSameAsLastClick] = useState(false); // Or even this?
+
+  const [clickedRecord, setClickedRecord] = useState([]);
 
   const handleItemClick = (number) => {
-    if (clickedNumber !== number) {
-      setIsSameAsLastClick(false);
+    // if (clickedNumber !== number) {
+    //   setIsSameAsLastClick(false);
+    //   increaseCount();
+    // } else {
+    //   setIsSameAsLastClick(true);
+    //   resetCount();
+    // }
+    if (!clickedRecord.includes(number)) {
       increaseCount();
+      const newRecord = [...clickedRecord, number];
+      setClickedRecord(newRecord);
     } else {
-      setIsSameAsLastClick(true);
       resetCount();
+      setClickedRecord([]);
     }
     setClickedNumber(number);
     setShuffledNumbers(shuffleArray(shuffledNumbers));
@@ -56,7 +66,7 @@ function App() {
   // const pokeNumber = pokeList[index];
   const [pokeList, setPokeList] = useState(DEFAULT_POKES);
   const [count, setCount] = useState(0);
-  
+
 
   // console.log(pokeList)
   function handleIncreaseCount() {
