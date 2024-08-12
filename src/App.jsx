@@ -80,7 +80,7 @@ function App() {
     <>
       <h1>A game of memory</h1>
       <ItemList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
-      <div>{count}</div>
+      <div>High Score: {count}</div>
     </>
   )
 }

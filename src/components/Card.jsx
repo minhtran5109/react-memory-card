@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import '../styles/memGame.css'
 
 const BASED_API = "https://pokeapi.co/api/v2/pokemon-form"
 
@@ -39,7 +40,7 @@ function Card({pokeNumber, onClick}) {
   // )
 
   return (
-    <div onClick={() => onClick(pokeNumber)} style={{ cursor: 'pointer', padding: '10px', border: '1px solid black', margin: '5px' }}>
+    <div onClick={() => onClick(pokeNumber)} className='card'>
     {pokeNumber}
     </div>
   )
