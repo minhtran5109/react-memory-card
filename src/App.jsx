@@ -68,7 +68,7 @@ function App() {
   // const pokeNumber = pokeList[index];
   const [pokeList, setPokeList] = useState(DEFAULT_POKES);
   const [count, setCount] = useState(0);
-
+  const [highScore, setHighScore] = useState(0)
 
   // console.log(pokeList)
   function handleIncreaseCount() {
@@ -76,15 +76,26 @@ function App() {
     setCount(newCount);
   }
 
+  useEffect(() => {
+    const savedHighScore = parseInt(localStorage.getItem("highScore"), 10) || 0;
+    setHighScore(savedHighScore);
+  }, [])
+
+  useEffect(() => {
+    if (count > highScore) {
+      setHighScore(count);
+      localStorage.setItem('highScore', count)
+    }
+  }, [count, highScore])
+
   return (
     <>
       <h1>A game of memory</h1>
       <ItemList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
-      <div>High Score: {count}</div>
+      <div>Score: {count} / {DEFAULT_POKES.length}</div>
+      <div>Highest score: {highScore}</div>
     </>
   )
 }
 
 export default App
-
-//Maybe not comparing to previous number but comparing to a list of clicked numbers instead
