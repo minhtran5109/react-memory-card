@@ -46,10 +46,10 @@ function App() {
 
   const targetScore = DEFAULT_POKES.length;
   
-  useEffect(() => {
-    const savedHighScore = parseInt(localStorage.getItem("highScore"), 10) || 0;
-    setHighScore(savedHighScore);
-  }, [])
+  // useEffect(() => {
+  //   const savedHighScore = parseInt(localStorage.getItem("highScore"), 10) || 0;
+  //   setHighScore(savedHighScore);
+  // }, [])
 
   useEffect(() => {
     if (count > highScore) {
@@ -75,10 +75,12 @@ function App() {
   return (
     <>
       <h1>A game of memory</h1>
-      <ItemList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
+
       <div>Score: {count} / {targetScore}</div>
       <div>Highest score: {highScore}</div>
-      
+
+      <ItemList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
+
       <CongratulationModal
         isVisible={showModal}
         onClose={closeModal}

@@ -37,12 +37,6 @@ function Card({pokeNumber, onClick}) {
     </div>
   )
 
-  // return (
-  //   <div onClick={() => onClick(pokeNumber)} className='card'>
-  //   {pokeNumber}
-  //   </div>
-  // )
-
 };
 
 export default Card;
