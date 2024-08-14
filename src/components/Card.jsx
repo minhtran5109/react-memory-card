@@ -34,7 +34,6 @@ function Card({pokeNumber, onClick}) {
   return (
     <div onClick={() => onClick(pokeNumber)} className='card'>
       <img src={pokeData.img_src}></img>
-      <span>{pokeData.name}</span>
     </div>
   )
 

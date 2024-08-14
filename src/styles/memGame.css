@@ -1,6 +1,10 @@
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .card {
   cursor: 'pointer';
-  padding: 10px;
   border: 1px solid black;
   margin: 5px;
   color: red;

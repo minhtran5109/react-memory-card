@@ -2,11 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Card from './components/Card';
 
-const DEFAULT_POKES = [131,132,133,134,135];
-
-// function randomIndex(max) {
-//   return Math.floor(Math.random() * max);
-// }
+const DEFAULT_POKES = [131,132,133,134,135, 136];
 
 function shuffleArray(array) {
   const newArray = array.slice(); // Create a copy of the original array
@@ -17,22 +13,11 @@ function shuffleArray(array) {
   return newArray;
 }
 
-
-
 const ItemList = ({ numbers , increaseCount, resetCount}) => {
   const [shuffledNumbers, setShuffledNumbers] = useState(numbers);
-  const [clickedNumber, setClickedNumber] = useState(null);  //Will I eventually still need this?
-
   const [clickedRecord, setClickedRecord] = useState([]);
 
   const handleItemClick = (number) => {
-    // if (clickedNumber !== number) {
-    //   setIsSameAsLastClick(false);
-    //   increaseCount();
-    // } else {
-    //   setIsSameAsLastClick(true);
-    //   resetCount();
-    // }
     if (!clickedRecord.includes(number)) {
       increaseCount();
       const newRecord = [...clickedRecord, number];
@@ -41,7 +26,6 @@ const ItemList = ({ numbers , increaseCount, resetCount}) => {
       resetCount();
       setClickedRecord([]);
     }
-    setClickedNumber(number);
     setShuffledNumbers(shuffleArray(shuffledNumbers));
   };
 
@@ -54,19 +38,15 @@ const ItemList = ({ numbers , increaseCount, resetCount}) => {
   }, [clickedRecord]);
 
   return (
-    <div>
+    <div className='item-list'>
       {shuffledNumbers.map((number, index) => (
         <Card key={index} pokeNumber={number} onClick={handleItemClick} />
       ))}
-      {clickedNumber !== null && <p>You clicked on: {clickedNumber}</p>}
     </div>
   );
 };
 
 function App() {
-  // const index = randomIndex(pokeList.length);
-  // const pokeNumber = pokeList[index];
-  const [pokeList, setPokeList] = useState(DEFAULT_POKES);
   const [count, setCount] = useState(0);
   const [highScore, setHighScore] = useState(0)
 
