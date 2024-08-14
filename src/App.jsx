@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Card from './components/Card';
+import CongratulationModal from './components/CongratulationModal';
 
-const DEFAULT_POKES = [131,132,133,134,135, 136];
+const DEFAULT_POKES = [131,132,133,134,135,136];
 
 function shuffleArray(array) {
   const newArray = array.slice(); // Create a copy of the original array
@@ -29,14 +30,6 @@ const ItemList = ({ numbers , increaseCount, resetCount}) => {
     setShuffledNumbers(shuffleArray(shuffledNumbers));
   };
 
-  useEffect(() => {
-    if(clickedRecord.length === DEFAULT_POKES.length) {
-      console.log('finished');
-      window.alert("You won! Congratulations!\nThe Game will now reset.");
-      window.location.reload();
-    }
-  }, [clickedRecord]);
-
   return (
     <div className='item-list'>
       {shuffledNumbers.map((number, index) => (
@@ -49,13 +42,10 @@ const ItemList = ({ numbers , increaseCount, resetCount}) => {
 function App() {
   const [count, setCount] = useState(0);
   const [highScore, setHighScore] = useState(0)
+  const [showModal, setShowModal] = useState(false)
 
-  // console.log(pokeList)
-  function handleIncreaseCount() {
-    const newCount = count + 1;
-    setCount(newCount);
-  }
-
+  const targetScore = DEFAULT_POKES.length;
+  
   useEffect(() => {
     const savedHighScore = parseInt(localStorage.getItem("highScore"), 10) || 0;
     setHighScore(savedHighScore);
@@ -64,16 +54,36 @@ function App() {
   useEffect(() => {
     if (count > highScore) {
       setHighScore(count);
-      localStorage.setItem('highScore', count)
+      // localStorage.setItem('highScore', count);
+
+      if (count === targetScore) {
+        setShowModal(true);
+      }
     }
   }, [count, highScore])
+
+  function handleIncreaseCount() {
+    const newCount = count + 1;
+    setCount(newCount);
+  }
+
+  function closeModal() {
+    setShowModal(false);
+    window.location.reload();
+  }
 
   return (
     <>
       <h1>A game of memory</h1>
       <ItemList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
-      <div>Score: {count} / {DEFAULT_POKES.length}</div>
+      <div>Score: {count} / {targetScore}</div>
       <div>Highest score: {highScore}</div>
+      
+      <CongratulationModal
+        isVisible={showModal}
+        onClose={closeModal}
+        highScore={highScore}
+      />
     </>
   )
 }
