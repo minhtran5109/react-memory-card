@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import CongratulationModal from './components/CongratulationModal';
 import PokeList from './components/PokeList';
+import pokeLogo from './assets/logo.png'
 
 const DEFAULT_POKES = [131,132,133,134,135,136];
 
@@ -35,12 +36,15 @@ function App() {
 
   return (
     <>
+      <img src={pokeLogo} alt='Pokemon Logo' id='main-logo'/>
       <h1>A game of memory</h1>
 
       <div>Score: {count} / {targetScore}</div>
       <div>Highest score: {highScore}</div>
 
       <PokeList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
+
+      <div id='tutorial'>How to play: At every turn, try to pick a unique pokemon that you have not picked before. Good luck catching them all!</div>
 
       <CongratulationModal
         isVisible={showModal}

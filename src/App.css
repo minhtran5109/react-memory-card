@@ -4,3 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+
+#main-logo {
+  width: 35%;
+}
+
+#tutorial {
+  margin-top: 20px;
+}
