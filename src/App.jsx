@@ -11,7 +11,8 @@ function App() {
   const [highScore, setHighScore] = useState(0)
   const [showModal, setShowModal] = useState(false)
 
-  const targetScore = DEFAULT_POKES.length;
+  // const targetScore = DEFAULT_POKES.length;
+  const targetScore = 2;
 
   useEffect(() => {
     if (count > highScore) {

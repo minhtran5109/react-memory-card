@@ -6,9 +6,15 @@
 }
 
 #main-logo {
-  width: 35%;
+  width: 60%;
 }
 
 #tutorial {
   margin-top: 20px;
+}
+
+@media only screen and (min-width: 700px) {
+  #main-logo {
+    width: 35%;
+  }
 }

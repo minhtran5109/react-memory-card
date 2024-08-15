@@ -8,8 +8,8 @@ function CongratulationModal({ isVisible, onClose, highScore }) {
     <div className="modal-backdrop">
       <div className="modal-content">
         <h2>Congratulations!</h2>
-        <p>You've reached a new high score of {highScore}!</p>
-        <button onClick={onClose}>Close</button>
+        <p>You've catched all {highScore} pokemon!</p>
+        <button onClick={onClose}>Play Again</button>
       </div>
     </div>
   );
