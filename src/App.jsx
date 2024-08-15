@@ -4,7 +4,7 @@ import CongratulationModal from './components/CongratulationModal';
 import PokeList from './components/PokeList';
 import pokeLogo from './assets/logo.png'
 
-const DEFAULT_POKES = [131,132,133,134,135,136];
+const DEFAULT_POKES = [9,31,55,73,130,131,132,134,148,62,320,376];
 
 function App() {
   const [count, setCount] = useState(0);
