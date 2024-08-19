@@ -16,7 +16,7 @@ const PokeList = ({ numbers , increaseCount, resetCount}) => {
   const [clickedRecord, setClickedRecord] = useState([]);
 
   useEffect(() => {
-    setShuffledNumbers(shuffleArray(shuffledNumbers));
+    setShuffledNumbers(shuffleArray(numbers));
   }, [])
 
   const handleItemClick = (number) => {
