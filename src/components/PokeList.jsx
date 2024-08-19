@@ -34,7 +34,7 @@ const PokeList = ({ numbers , increaseCount, resetCount}) => {
   return (
     <div className='item-list'>
       {shuffledNumbers.map((number, index) => (
-        <Card key={index} pokeNumber={number} onClick={handleItemClick} />
+        <Card key={number} pokeNumber={number} onClick={handleItemClick} />
       ))}
     </div>
   );

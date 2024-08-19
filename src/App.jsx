@@ -36,29 +36,30 @@ function App() {
   }
 
   return (
-    <>
-      <img src={pokeLogo} alt='Pokemon Logo' id='main-logo'/>
-      <h1>A game of memory</h1>
-
-      <div className='score-section'>
-        <div>Score: {count} / {targetScore}</div>
-        <div>Highest score: {highScore}</div>
-      </div>
-
-
-      <PokeList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
-
-      <div id='tutorial'>
-        <p><b>How to play:</b> At every turn, try to pick a unique pokemon that you have not picked before.</p> 
-        <p>Good luck catching them all!</p>
+    <div className='container'>
+      <div className="main-section">
+        <img src={pokeLogo} alt='Pokemon Logo' id='main-logo'/>
+        <h1>A game of memory</h1>
+        <div className='score-section'>
+          <div>Score: {count} / {targetScore}</div>
+          <div>Highest score: {highScore}</div>
         </div>
+        <PokeList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
+        <div id='tutorial'>
+          <p><b>How to play:</b> At every turn, try to pick a unique pokemon that you have not picked before.</p>
+          <p>Good luck catching them all!</p>
+        </div>
+      </div>
 
       <CongratulationModal
         isVisible={showModal}
         onClose={closeModal}
         highScore={highScore}
       />
-    </>
+      <footer>
+        <p>Pokémon API created by Paul Hallet and other contributors from <a href="https://github.com/PokeAPI/pokeapi">PokéAPI</a>. Pokémon and Pokémon logo are trademarks of Nintendo.</p>
+      </footer>
+    </div>
   )
 }
 
