@@ -6,12 +6,14 @@
 }
 
 .card {
-  /* width: 100px; */
-  cursor: 'pointer';
-  /* border: 2px solid black; */
+  cursor: pointer;
   border-radius: 10px;
   margin: 5px;
-  background-color: #eff5ff;
+  background-color: #aec6d6;
+}
+
+.score-section {
+  font-size: 1.1rem;
 }
 
 @media only screen and (min-width: 700px) {

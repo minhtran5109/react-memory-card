@@ -9,7 +9,7 @@ html {
 
   color-scheme: light dark;
 
-  background-image: linear-gradient(180deg, #ffbaba, #ffe9e9);
+  background-image: linear-gradient(180deg, #e29764, #dfa986);
 }
 
 footer {
@@ -18,8 +18,8 @@ footer {
   bottom: 0;
   width: 100vw;
   text-align: center;
-  background-color: #dde5ec;
-  color: #000;
+  background-color: #e29764;
+  border-top: 1px solid salmon;
 }
 
 footer p {

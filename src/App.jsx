@@ -11,8 +11,8 @@ function App() {
   const [highScore, setHighScore] = useState(0)
   const [showModal, setShowModal] = useState(false)
 
-  // const targetScore = DEFAULT_POKES.length;
-  const targetScore = 2;
+  const targetScore = DEFAULT_POKES.length;
+  // const targetScore = 2;
 
   useEffect(() => {
     if (count > highScore) {
@@ -40,8 +40,11 @@ function App() {
       <img src={pokeLogo} alt='Pokemon Logo' id='main-logo'/>
       <h1>A game of memory</h1>
 
-      <div>Score: {count} / {targetScore}</div>
-      <div>Highest score: {highScore}</div>
+      <div className='score-section'>
+        <div>Score: {count} / {targetScore}</div>
+        <div>Highest score: {highScore}</div>
+      </div>
+
 
       <PokeList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
 
