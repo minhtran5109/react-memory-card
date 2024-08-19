@@ -57,7 +57,7 @@ function App() {
         highScore={highScore}
       />
       <footer>
-        <p>Pokémon API created by Paul Hallet and other contributors from <a href="https://github.com/PokeAPI/pokeapi">PokéAPI</a>. Pokémon and Pokémon logo are trademarks of Nintendo.</p>
+        <p>Created by <a href='https://github.com/minhtran5109/react-memory-card'>Van Minh Tran</a>. Pokémon API created by Paul Hallet and other contributors from <a href="https://github.com/PokeAPI/pokeapi">PokéAPI</a>. Pokémon and Pokémon logo are trademarks of Nintendo.</p>
       </footer>
     </div>
   )
