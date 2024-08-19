@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Card from './Card';
 
+// Shuffle and return a new array with shuffled elements
 function shuffleArray(array) {
   const newArray = array.slice(); // Create a copy of the original array
   for (let i = newArray.length - 1; i > 0; i--) {
@@ -13,6 +14,10 @@ function shuffleArray(array) {
 const PokeList = ({ numbers , increaseCount, resetCount}) => {
   const [shuffledNumbers, setShuffledNumbers] = useState(numbers);
   const [clickedRecord, setClickedRecord] = useState([]);
+
+  useEffect(() => {
+    setShuffledNumbers(shuffleArray(shuffledNumbers));
+  }, [])
 
   const handleItemClick = (number) => {
     if (!clickedRecord.includes(number)) {

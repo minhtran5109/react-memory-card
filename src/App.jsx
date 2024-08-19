@@ -45,7 +45,10 @@ function App() {
 
       <PokeList numbers={DEFAULT_POKES} increaseCount={handleIncreaseCount} resetCount={() => setCount(0)}/>
 
-      <div id='tutorial'>How to play: At every turn, try to pick a unique pokemon that you have not picked before. Good luck catching them all!</div>
+      <div id='tutorial'>
+        <p><b>How to play:</b> At every turn, try to pick a unique pokemon that you have not picked before.</p> 
+        <p>Good luck catching them all!</p>
+        </div>
 
       <CongratulationModal
         isVisible={showModal}
