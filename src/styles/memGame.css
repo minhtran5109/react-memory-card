@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 12px;
+  width: 65%;
   /* gap: 12px 10px; */
-  width: 80%;
 }
 
 .card {
@@ -20,6 +20,6 @@
 @media only screen and (min-width: 700px) {
   .item-list {
     grid-template-columns: repeat(6,1fr);
-    width: 100%;
+    width: 70%;
   };
 }
